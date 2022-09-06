@@ -23,7 +23,7 @@ class Card {
 }
 
 //build a function creating a new deck. I used .flatmap to create one array for all the suits
-// instead of 4 separat arrays as the .map would have done. Use the card class to define my cards and assign
+// instead of 4 separate arrays as the .map would have done. Use the card class to define my cards and assign
 // a value and suit to each card in the array of 52 elements.
 function newDeck(){
     return suits.flatMap(suit => {
@@ -32,7 +32,8 @@ function newDeck(){
         });
     });
 }
-//using a for loop I created a function that takes the cards 
+//using a for loop I created a function that takes the cards and reassigns the indexes of random cards
+// to create the "shuffle"
 let shuffle = deck => {
 	for (let i = deck.length - 1; i > 0; i--){
 		const j = Math.floor(Math.random() * (i + 1));
@@ -64,10 +65,9 @@ let player1Points = 0
 let player2Points = 0
 
 
-// Here I set a for loop to compare the values given in the 2 result arrays. I chose to add all the elements
-// in each array and then decide which array held the greater values. In the game of war the winner will hold
-// the greater total value of cards if they win. I incremented the results and they are held in the player
-// points variables above.
+// Here I set a for loop to compare the values given in the 2 result arrays. Each card played is compared
+// and the player with the card of greater value will be given a point. Points are held in player1Points
+// and player2Points variables.
 
 for (let i = 0; i < 26; i++){
     console.log(`Player 1: ${resultOne[i]}`, `Player 2: ${resultTwo[i]}`);
@@ -79,7 +79,9 @@ for (let i = 0; i < 26; i++){
 }
     console.log(`Player 1 Total Points ${player1Points}`);
     console.log(`Player 2 Total Points ${player2Points}`);
-// I then compared the player points values to print the winner of the greater hand.
+
+// I then compared the player points variables and whoever has more winning hands at the end of the game 
+// is declared the winner. In the event of a tie game there is no winner and a tie game is declared.
 
 if(player1Points > player2Points){
     console.log(`PLAYER ONE WINS!`);
