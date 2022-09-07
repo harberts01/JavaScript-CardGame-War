@@ -7,7 +7,7 @@ const K = 13
 const suits = ['♥', '♣', '♠', '♦']
 const values = [A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K]
 
-// created a deck using the newDeck as a callback so once we completed the newDeck function it would
+// created a deck using the newDeck function so once the newDeck function completed it would
 // be held in the Deck class.
 class Deck{
     constructor(cards = newDeck()){
